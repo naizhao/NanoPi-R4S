@@ -43,8 +43,8 @@ download_file () {
     cd /tmp && clean_up
     days=$(($days+1))
     echo `(date -d "@$(($(busybox date +%s) - 86400*($days-1)))" +%Y.%m.%d)`
-    wget https://github.com/DHDAXCW/NanoPi-R4S-2021/releases/download/$(date -d "@$(($(busybox date +%s) - 86400*($days-1)))" +%Y.%m.%d)-Lean$choose/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz
-    wget https://github.com/DHDAXCW/NanoPi-R4S-2021/releases/download/$(date -d "@$(($(busybox date +%s) - 86400*($days-1)))" +%Y.%m.%d)-Lean$choose/sha256sums
+    wget https://github.com/naizhao/NanoPi-R4S/releases/download/$(date -d "@$(($(busybox date +%s) - 86400*($days-1)))" +%Y.%m.%d)-Lean$choose/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz
+    wget https://github.com/naizhao/NanoPi-R4S/releases/download/$(date -d "@$(($(busybox date +%s) - 86400*($days-1)))" +%Y.%m.%d)-Lean$choose/sha256sums
     exist_judge
 }
 #存在判断

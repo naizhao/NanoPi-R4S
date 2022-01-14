@@ -1,8 +1,8 @@
-# English | [中文简体](https://github.com/DHDAXCW/NanoPi-R4S-2021/blob/main/README.md)
-# NanoPi-R4S-2021 The plug-in and kernel version are automatically updated every day.
+# English | [中文简体](https://github.com/naizhao/NanoPi-R4S/blob/main/README.md)
+# NanoPi-R4S The plug-in and kernel version are automatically updated every day.
 ## 👉Before using this firmware, please strictly abide by the laws and regulations related to the use of the Internet in the country, and do not violate the laws and regulations of the country! 👈
 ## Samsung TF card\Haikang TF card is strongly recommended. Even if the firmware is difficult to flash, only Samsung flashes it to boot.
-### Firmware classification There are key words for remarks in [releases](https://github.com/DHDAXCW/NanoPi-R4S-2021/releases)
+### Firmware classification There are key words for remarks in [releases](https://github.com/naizhao/NanoPi-R4S/releases)
 -The official version (including overclocking) can be selected for tossing, and the voltage must be considered. Overclocking is boosted, which will cause instability. For example, running cpu test is easy to boost and so on.
 -Docker version contains Docker plug-in, which will cause udp forwarding to fail. Use it with caution, as long as you don’t open the udp of the passwall, nothing will affect the use!
 -Silent frequency version Remove the overclocking patch and change it to the official default frequency, which is suitable for the needs of not tossing. It doesn't matter how much the voltage is, it's good to be stable! (Recommended) It is recommended to use the sq format for the format, which is suitable for Xiaobai. If you need to mount, choose ext4
@@ -12,19 +12,19 @@ This month I have been begging without a computer (please be in the computer~). 
 ### Default compilation
 
 -Username: root Password: password Management IP: 192.168.2.1
--Download link: https://github.com/DHDAXCW/NanoPi-R4S-2021/releases
--x86_64 firmware download https://github.com/DHDAXCW/lede/releases
+-Download link: https://github.com/naizhao/NanoPi-R4S/releases
+-x86_64 firmware download https://github.com/naizhao/lede/releases
 ###-Docker: The official version comes with docker, overclocking, and docker plug-in. (The udp requirements of passwall are very high, do not brush the docker version)
 ###-formal edition: official edition with overclocking
--Lite version: https://github.com/DHDAXCW/NanoPi-R2S-R4S-2021-mini/releases
--Telegram group: https://t.me/DHDAXCW
--X86 firmware: [click the link to download](https://github.com/DHDAXCW/lede/releases)
+-Lite version: https://github.com/naizhao/NanoPi-R2S-R4S-mini/releases
+-Telegram group: https://t.me/naizhao
+-X86 firmware: [click the link to download](https://github.com/naizhao/lede/releases)
 # Online upgrade
 -Copy the following code and execute it in the TTYD terminal. You must not leave during the process, otherwise you have to download again. Please flash the ext4 format and upgrade tomorrow
 ### This upgrade only supports 4G version, 1G version does not support, please do not use this upgrade. 1G version memory tmp partition space is insufficient, unable to download the upgrade package
 -There are multiple versions in it, choose by yourself 👇
 ```
-wget https://raw.githubusercontent.com/DHDAXCW/NanoPi-R4S-2021/main/scripts/autoupdate.sh && sh autoupdate.sh
+wget https://raw.githubusercontent.com/naizhao/NanoPi-R4S/main/scripts/autoupdate.sh && sh autoupdate.sh
 ```
 # Enjoy a chicken drumstick
  ![Alt ​​text](data/2.jpg?raw=true "Title")

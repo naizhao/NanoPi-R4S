@@ -41,11 +41,11 @@ function to_check()
     elseif model:match(".*R2S.*") then
 		model = "nanopi-r2s"
 		check_update()
-        download_url = "https://github.com/DHDAXCW/NanoPi-R2S-2021/releases/latest" ..model.. "/" ..dateyr.. "-openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-squashfs-sysupgrade.img.gz"
+        download_url = "https://github.com/naizhao/NanoPi-R2S/releases/latest" ..model.. "/" ..dateyr.. "-openwrt-rockchip-armv8-friendlyarm_nanopi-r2s-squashfs-sysupgrade.img.gz"
     elseif model:match(".*R4S.*") then
 		model = "nanopi-r4s"
 		check_update()
-        download_url = "https://github.com/DHDAXCW//NanoPi-R4S-2021/releases/latest" ..model.. "/" ..dateyr.. "-oopenwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz"
+        download_url = "https://github.com/naizhao//NanoPi-R4S/releases/latest" ..model.. "/" ..dateyr.. "-oopenwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz"
 	else
 		local needs_update = false
 		return {
@@ -53,7 +53,7 @@ function to_check()
             error = i18n.translate("Can't determine MODEL, or MODEL not supported.")
 			}
 	end
-	
+
 
     if needs_update and not download_url then
         return {

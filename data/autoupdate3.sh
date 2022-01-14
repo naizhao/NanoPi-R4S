@@ -6,7 +6,7 @@ cd /tmp
 rm -rf artifact openwrt-rockchip*.img.gz openwrt-rockchip*img*
 echo -e '\e[92m准备下载升级文件\e[0m'
 echo `(date +%Y.%m.%d)`
-wget https://github.com/DHDAXCW/NanoPi-R4S-2021/releases/download/$(date +%Y.%m.%d)-Lean3/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz
+wget https://github.com/naizhao/NanoPi-R4S/releases/download/$(date +%Y.%m.%d)-Lean3/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz
 if [ -f /tmp/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz	]; then
 	echo -e '\e[92m当日固件已下载，准备解压\e[0m'
 else
@@ -14,7 +14,7 @@ else
 	for t in $(seq 15)
 	do {
 	    echo `(date -d "@$(( $(busybox date +%s) - 86400*$t))" +%Y.%m.%d)`
-	    wget https://github.com/DHDAXCW/NanoPi-R4S-2021/releases/download/$(date -d "@$(( $(busybox date +%s) - 86400*$t))" +%Y.%m.%d)-Lean3/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz
+	    wget https://github.com/naizhao/NanoPi-R4S/releases/download/$(date -d "@$(( $(busybox date +%s) - 86400*$t))" +%Y.%m.%d)-Lean3/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz
 	    if [ -f /tmp/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-ext4-sysupgrade.img.gz ]; then
 		    echo -e '\e[92m旧版固件已下载，准备解压\e[0m'
 		    break;
