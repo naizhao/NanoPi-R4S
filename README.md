@@ -13,7 +13,6 @@
 
 - 用户名：root 密码：password  管理IP：10.0.88.1
 - 下载地址： https://github.com/naizhao/NanoPi-R4S/releases
-- x86_64固件下载 https://github.com/naizhao/lede/releases
 ### - Docker：正式版带docker，有超频，带有docker插件。（对passwall的udp要求很高，不要刷docker版本）
 # 在线升级
 - 复制以下代码，在TTYD终端执行，过程中不得离开，否则还得重新下载，请刷ext4格式明天再升级
@@ -27,8 +26,6 @@ wget https://raw.githubusercontent.com/lone-wind/scripts/main/onlineupdate.sh &&
 ## 提示
  - 我的固件加了动态超频，不管热不热这是取决后台运行程序在跑什么。
  - 感觉很热  就加风扇，推荐 风扇6cm×6cm，薄1cm，usb也行 或者端子线zh1.5（风扇脚本目前在建设中）
-# [赏个鸡腿吧](https://afdian.net/@naizhao/plan)
-### https://afdian.net/@naizhao/plan
 ## 鸣谢
 
 特别感谢以下项目：
