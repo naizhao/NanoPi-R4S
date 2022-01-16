@@ -1,4 +1,4 @@
-name: NanoPi R4S stable&stable BraWRT
+name: NanoPi R4S Compact Stable BraWRT
 
 on:
   repository_dispatch:
@@ -11,7 +11,7 @@ on:
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
-  CONFIG_FILE: configs/lean/lean_stable1.config
+  CONFIG_FILE: configs/lean/lean_compact.config
   DIY_SH: scripts/lean.sh
   IPV6MOD_IN_FIRMWARE: true
   KMODS_IN_FIRMWARE: true
@@ -254,7 +254,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.release_date }} NanoPi-R4S Stable_精简极精简
+          name: ${{ steps.tag.outputs.release_date }} NanoPi-R4S Compact_精简极精简
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
@@ -282,5 +282,5 @@ jobs:
 
       - name: WeChat notification
         if: env.WECHAT_NOTIFICATION == 'true' && !cancelled() && steps.tag.outputs.status == 'success'
-        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=[${{ steps.tag.outputs.release_date }} NanoPi-R4S Stable_精简极精简]编译完成&desp=[${{ steps.tag.outputs.release_date }} NanoPi-R4S Stable_精简极精简]编译完成"
+        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=\[${{ steps.tag.outputs.release_date }} 精简极精简\]编译完成&desp=\[${{ steps.tag.outputs.release_date }} NanoPi-R4S Compact_精简极精简\]编译完成"
 
