@@ -18,6 +18,7 @@ env:
   UPLOAD_WETRANSFER: true
   UPLOAD_COWTRANSFER: true
   UPLOAD_RELEASE: true
+  WECHAT_NOTIFICATION: true
   TZ: Asia/Shanghai
 
 jobs:
@@ -278,3 +279,8 @@ jobs:
         with:
           name: |
             bin-archive
+
+      - name: WeChat notification
+        if: env.WECHAT_NOTIFICATION == 'true' && !cancelled() && steps.tag.outputs.status == 'success'
+        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=[${{ steps.tag.outputs.release_date }} NanoPi-R4S formal edition_正式版_全插件]编译完成&desp=[${{ steps.tag.outputs.release_date }} NanoPi-R4S formal edition_正式版_全插件]编译完成"
+
