@@ -105,5 +105,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+
 autoload -U compinit && compinit
 cat /etc/banner
