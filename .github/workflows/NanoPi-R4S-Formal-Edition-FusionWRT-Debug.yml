@@ -8,6 +8,10 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'true'
+      cache:
+        description: 'Cache to Github Actions Cache'
+        required: false
+        default: 'true'
   #schedule:
     #- cron: 0 17 * * *
   # watch:
@@ -66,7 +70,7 @@ jobs:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
         # clean: 'false'
-        clean: 'true'
+        clean: github.event.inputs.cache
     - name: Update Feeds
       id: update
       run: |
