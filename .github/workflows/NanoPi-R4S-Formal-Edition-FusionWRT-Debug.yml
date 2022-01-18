@@ -24,8 +24,8 @@ env:
   DIY_SH: scripts/lean.sh
   IPV6MOD_IN_FIRMWARE: true
   KMODS_IN_FIRMWARE: true
-  UPLOAD_WETRANSFER: true
-  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: false
+  UPLOAD_COWTRANSFER: false
   UPLOAD_RELEASE: true
   WECHAT_NOTIFICATION: true
   TZ: Asia/Shanghai
@@ -259,7 +259,7 @@ jobs:
         id: tag
         if: env.UPLOAD_RELEASE == 'true' && !cancelled()
         run: |
-          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-Lean3"
+          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-Lean-Debug"
           echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
           touch release.txt
           [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
@@ -271,7 +271,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.release_date }} NanoPi-R4S Formal Edition_正式版_全插件
+          name: ${{ steps.tag.outputs.release_date }} NanoPi-R4S Formal Edition Debug
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
@@ -299,5 +299,5 @@ jobs:
 
       - name: WeChat notification
         if: env.WECHAT_NOTIFICATION == 'true' && !cancelled() && steps.tag.outputs.status == 'success'
-        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=\[${{ steps.tag.outputs.release_date }} 正式版_全插件\]编译完成&desp=\[${{ steps.tag.outputs.release_date }} NanoPi-R4S Formal Edition_正式版_全插件\]编译完成"
+        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=\[${{ steps.tag.outputs.release_date }} Debug\]编译完成&desp=\[${{ steps.tag.outputs.release_date }} NanoPi-R4S Debug\]编译完成"
 
