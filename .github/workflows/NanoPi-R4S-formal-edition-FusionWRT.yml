@@ -3,6 +3,15 @@ name: NanoPi R4S Formal Edition BraWRT
 on:
   repository_dispatch:
   workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
+      cache:
+        description: 'Cache to Github Actions Cache'
+        required: false
+        default: 'false'
   #schedule:
     #- cron: 0 17 * * *
   # watch:
@@ -61,7 +70,7 @@ jobs:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
         # clean: 'false'
-        clean: 'true'
+        clean: github.event.inputs.cache
     - name: Update Feeds
       id: update
       run: |
