@@ -9,9 +9,13 @@ on:
         required: false
         default: 'true'
       cache:
-        description: 'Clean Github Actions Cache'
+        description: 'Enable Github Actions Cache'
         required: false
         default: 'true'
+      clean:
+        description: 'Clean Github Actions Cache'
+        required: false
+        default: 'false'
       upload-3rd:
         description: 'Upload to WeTransfer & CowTransfer'
         required: false
@@ -71,10 +75,10 @@ jobs:
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'true'
+        ccache: ${{ github.event.inputs.cache }}
         prefix: ${{ github.workspace }}/openwrt
         # clean: 'false'
-        clean: ${{ github.event.inputs.cache }}
+        clean: ${{ github.event.inputs.clean }}
     - name: Update Feeds
       id: update
       run: |

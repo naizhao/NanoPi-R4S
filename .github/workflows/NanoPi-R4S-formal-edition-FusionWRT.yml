@@ -9,7 +9,15 @@ on:
         required: false
         default: 'false'
       cache:
+        description: 'Enable Github Actions Cache'
+        required: false
+        default: 'true'
+      clean:
         description: 'Clean Github Actions Cache'
+        required: false
+        default: 'false'
+      upload-3rd:
+        description: 'Upload to WeTransfer & CowTransfer'
         required: false
         default: 'false'
   #schedule:
@@ -24,8 +32,8 @@ env:
   DIY_SH: scripts/lean.sh
   IPV6MOD_IN_FIRMWARE: true
   KMODS_IN_FIRMWARE: true
-  UPLOAD_WETRANSFER: true
-  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: ${{ github.event.inputs.upload-3rd }}
+  UPLOAD_COWTRANSFER: ${{ github.event.inputs.upload-3rd }}
   UPLOAD_RELEASE: true
   WECHAT_NOTIFICATION: true
   TZ: Asia/Shanghai
@@ -67,10 +75,10 @@ jobs:
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'true'
+        ccache: ${{ github.event.inputs.cache }}
         prefix: ${{ github.workspace }}/openwrt
         # clean: 'false'
-        clean: ${{ github.event.inputs.cache }}
+        clean: ${{ github.event.inputs.clean }}
     - name: Update Feeds
       id: update
       run: |
