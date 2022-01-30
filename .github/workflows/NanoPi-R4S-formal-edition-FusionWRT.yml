@@ -9,7 +9,7 @@ on:
         required: false
         default: 'false'
       cache:
-        description: 'Cache to Github Actions Cache'
+        description: 'Clean Github Actions Cache'
         required: false
         default: 'false'
   #schedule:
@@ -70,7 +70,7 @@ jobs:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
         # clean: 'false'
-        clean: github.event.inputs.cache
+        clean: ${{ github.event.inputs.cache }}
     - name: Update Feeds
       id: update
       run: |
@@ -101,6 +101,14 @@ jobs:
         ../scripts/preset-clash-core.sh armv8
         ../scripts/preset-terminal-tools.sh
         make defconfig
+
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
     - name: Download Package
       id: package
       run: |
