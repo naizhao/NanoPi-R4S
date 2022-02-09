@@ -9,6 +9,7 @@
 - 此版本取消了精简版，改为稳定版
 ### 注：不要用恢复备份。。不保证某个插件是否正常运行。。。建议重新设置贼好！
 
+
 ### 默认编译  
 
 - 用户名：root 密码：password  管理IP：10.0.88.1
@@ -45,3 +46,7 @@ immortalwrt 的 OpenWrt 项目：
 P3TERX 大佬的 Actions-OpenWrt 项目：
 
 <https://github.com/P3TERX/Actions-OpenWrt>
+
+SuLingGG 大佬的 Actions 编译框架 项目：
+
+https://github.com/SuLingGG/OpenWrt-Rpi
