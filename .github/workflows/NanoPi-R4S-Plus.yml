@@ -267,7 +267,7 @@ jobs:
         id: tag
         if: env.UPLOAD_RELEASE == 'true' && !cancelled()
         run: |
-          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-Lean3"
+          echo "::set-output name=release_tag::$(date +"%Y.%m.%d")-NanoPi_R4S_Plus_BraWRT"
           echo "::set-output name=release_date::$(date +"%Y.%m.%d")"
           touch release.txt
           [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
@@ -279,7 +279,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.release_date }} NanoPi-R4S Plus_正式版_全插件
+          name: ${{ steps.tag.outputs.release_date }} NanoPi R4S Plus BraWRT
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
@@ -307,5 +307,5 @@ jobs:
 
       - name: WeChat notification
         if: env.WECHAT_NOTIFICATION == 'true' && !cancelled() && steps.tag.outputs.status == 'success'
-        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=\[${{ steps.tag.outputs.release_date }} 正式版_全插件\]编译完成&desp=\[${{ steps.tag.outputs.release_date }} NanoPi-R4S Formal Edition_正式版_全插件\]编译完成"
+        run: curl "https://sctapi.ftqq.com/${{ secrets.WeChatKey }}.send?title=\[NanoPi R4S Plus BraWRT ${{ steps.tag.outputs.release_date }}\]编译完成&desp=\[${{ steps.tag.outputs.release_date }} NanoPi R4S Plus BraWRT\]编译完成"
 
