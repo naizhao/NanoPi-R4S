@@ -8,16 +8,13 @@ rm -rf ./feeds/packages/admin/netdata
 svn co https://github.com/DHDAXCW/packages/branches/ok/admin/netdata ./feeds/packages/admin/netdata
 
 # Add cpufreq
-rm -rf ./feeds/luci/applications/luci-app-cpufreq 
+rm -rf ./feeds/luci/applications/luci-app-cpufreq
 svn co https://github.com/immortalwrt/luci/trunk/applications/luci-app-cpufreq ./feeds/luci/applications/luci-app-cpufreq
 ln -sf ./feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
 sed -i 's,1608,1800,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 sed -i 's,2016,2208,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 sed -i 's,1512,1608,g' feeds/luci/applications/luci-app-cpufreq/root/etc/uci-defaults/cpufreq
 rm -rf ./target/linux/rockchip/armv8/base-files/etc/hotplug.d
-rm -rf ./package/kernel/linux/modules/fs.mk
-wget -P ./package/kernel/linux/modules/ https://raw.githubusercontent.com/LPDDR6-10000MHz/lede/master/package/kernel/linux/modules/fs.mk
-rm -rf ./target/linux/generic/pending-5.10/701-net-ethernet-mtk_eth_soc-add-ipv6-flow-offloading-support.patch
 # Clone community packages to package/community
 mkdir package/community
 pushd package/community
@@ -108,7 +105,7 @@ git clone --depth=1 https://github.com/tindy2013/openwrt-subconverter
 # svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8821cu
 # svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8188eu
 # svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl8192du
-svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl88x2bu
+# svn co https://github.com/immortalwrt/immortalwrt/branches/openwrt-18.06-k5.4/package/kernel/rtl88x2bu
 
 # Add luci-app-smartdns & smartdns
 svn co https://github.com/281677160/openwrt-package/trunk/feeds/luci/applications/luci-app-smartdns
@@ -125,7 +122,7 @@ svn co https://github.com/zcy85611/Openwrt-Package/trunk/udpspeeder
 git clone --depth=1 https://github.com/destan19/OpenAppFilter
 
 # Add luci-aliyundrive-webdav
-rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav 
+rm -rf ../../customfeeds/luci/applications/luci-app-aliyundrive-webdav
 rm -rf ../../customfeeds/luci/applications/aliyundrive-webdav
 svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/aliyundrive-webdav
 svn co https://github.com/messense/aliyundrive-webdav/trunk/openwrt/luci-app-aliyundrive-webdav
