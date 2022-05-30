@@ -20,8 +20,8 @@ on:
         description: 'Upload to WeTransfer & CowTransfer'
         required: false
         default: 'false'
-  schedule:
-    - cron: 0 8 * * 1,4
+  # schedule:
+  #  - cron: 0 8 * * 1,4
   # watch:
   #   types: started
 
